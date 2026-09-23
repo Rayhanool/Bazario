@@ -1,0 +1,1 @@
+First, I connected my application with Firebase using FirebaseUtil. Then I configured database rules to secure the database. After that, I created FirebaseProduct to handle product data and FirebaseCartItem to handle cart data. Finally, I created ApiConfig to manage the API endpoints used by the application.”
