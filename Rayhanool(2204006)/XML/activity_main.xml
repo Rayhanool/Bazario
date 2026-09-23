@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bazario_bg">
+
+  <!-- Main Scrollable Content -->
+  <androidx.core.widget.NestedScrollView
+      android:id="@+id/mainScrollView"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:fillViewport="true"
+      android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="24dp">
+
+      <!-- Header App Bar -->
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center_vertical"
+          android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/logoCard"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/border_light"
+            app:cardBackgroundColor="@color/white">
+
+          <ImageView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:src="@drawable/bazario_logo"
+              android:scaleType="fitCenter"
+              android:padding="6dp"
+              android:contentDescription="Bazario Logo" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="BAZARIO"
+              android:textSize="11sp"
+              android:textStyle="bold"
+              android:letterSpacing="0.08"
+              android:textColor="@color/bazario_blue" />
+
+          <TextView
+              android:id="@+id/greeting"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Welcome to Bazario"
+              android:textStyle="bold"
+              android:textSize="17sp"
+              android:textColor="@color/bazario_navy"
+              android:ellipsize="end"
+              android:maxLines="1" />
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/profileButtonCard"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/border_light"
+            app:cardBackgroundColor="@color/surface">
+
+          <ImageButton
+              android:id="@+id/profileButton"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:src="@drawable/ic_nav_profile"
+              app:tint="@color/bazario_blue"
+              android:background="?attr/selectableItemBackgroundBorderless"
+              android:contentDescription="Profile" />
+        </com.google.android.material.card.MaterialCardView>
+
+      </LinearLayout>
+
+
+      <!-- Search and Cart Bar -->
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:gravity="center_vertical">
+
+        <!-- Elevated Search Bar -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/border_light"
+            app:cardBackgroundColor="@color/white">
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center_vertical"
+              android:paddingStart="14dp"
+              android:paddingEnd="14dp"
+              android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_search"
+                app:tint="@color/bazario_muted"
+                android:contentDescription="Search" />
+
+            <EditText
+                android:id="@+id/searchBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:background="@null"
+                android:hint="Search fresh groceries, items..."
+                android:textColorHint="@color/bazario_placeholder"
+                android:textColor="@color/bazario_text"
+                android:textSize="14sp"
+                android:singleLine="true"
+                android:imeOptions="actionSearch" />
+          </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Cart Button with Elevated Badge -->
+        <FrameLayout
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="10dp">
+
+          <com.google.android.material.card.MaterialCardView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              app:cardCornerRadius="16dp"
+              app:cardElevation="3dp"
+              app:strokeWidth="0dp"
+              app:cardBackgroundColor="@color/bazario_blue">
+
+            <ImageButton
+                android:id="@+id/cartButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_shopping_cart"
+                app:tint="@color/white"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="Cart" />
+          </com.google.android.material.card.MaterialCardView>
+
+          <TextView
+              android:id="@+id/cartBadge"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:minWidth="20dp"
+              android:minHeight="20dp"
+              android:layout_gravity="top|end"
+              android:layout_marginTop="-3dp"
+              android:layout_marginEnd="-3dp"
+              android:gravity="center"
+              android:text="0"
+              android:textSize="11sp"
+              android:textStyle="bold"
+              android:textColor="@color/white"
+              android:background="@drawable/bg_badge_rounded"
+              android:elevation="4dp" />
+        </FrameLayout>
+
+      </LinearLayout>
+
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/locationLabel"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="14dp"
+            android:text="📍 Select Area ▾"
+            android:textColor="@color/bazario_navy"
+            android:textSize="13sp"
+            android:background="@drawable/bg_search"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nearbyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:text="Nearby Sellers"
+            android:textSize="11sp"
+            app:cornerRadius="12dp"/>
+      </LinearLayout>
+
+      <!-- Modern Hero Banner -->
+      <com.google.android.material.card.MaterialCardView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          app:cardCornerRadius="20dp"
+          app:cardElevation="4dp"
+          app:strokeWidth="0dp"
+          app:cardBackgroundColor="@color/bazario_blue">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_banner_gradient"
+            android:padding="20dp">
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UP TO 40% OFF"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                android:background="@drawable/bg_card_pill"
+                android:backgroundTint="#33FFFFFF"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="3dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Shop Smart With Bazario"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Fresh groceries • Instant savings • Fast doorstep delivery"
+                android:textColor="#E0F7FA"
+                android:textSize="12sp" />
+          </LinearLayout>
+
+        </RelativeLayout>
+      </com.google.android.material.card.MaterialCardView>
+
+
+      <!-- Categories Section Header -->
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="22dp"
+          android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Categories"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/bazario_navy" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All Categories"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/bazario_blue" />
+      </LinearLayout>
+
+      <!-- Category Filter Chips -->
+      <HorizontalScrollView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:scrollbars="none"
+          android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="4dp">
+
+          <com.google.android.material.button.MaterialButton
+              android:id="@+id/catGroceries"
+              style="@style/Widget.Material3.Button.TonalButton"
+              android:layout_width="wrap_content"
+              android:layout_height="40dp"
+              android:text="Groceries"
+              app:icon="@drawable/ic_cat_grocery"
+              app:iconSize="16dp"
+              app:iconTint="@color/bazario_blue"
+              android:textColor="@color/bazario_navy"
+              android:textSize="13sp"
+              app:cornerRadius="20dp"
+              app:backgroundTint="@color/bazario_blue_subtle"
+              app:strokeWidth="1dp"
+              app:strokeColor="@color/border_light"
+              android:insetTop="0dp"
+              android:insetBottom="0dp" />
+
+          <com.google.android.material.button.MaterialButton
+              android:id="@+id/catDals"
+              style="@style/Widget.Material3.Button.TonalButton"
+              android:layout_width="wrap_content"
+              android:layout_height="40dp"
+              android:layout_marginStart="8dp"
+              android:text="Dals &amp; Pulses"
+              app:icon="@drawable/ic_cat_dals"
+              app:iconSize="16dp"
+              app:iconTint="@color/bazario_blue"
+              android:textColor="@color/bazario_navy"
+              android:textSize="13sp"
+              app:cornerRadius="20dp"
+              app:backgroundTint="@color/bazario_blue_subtle"
+              app:strokeWidth="1dp"
+              app:strokeColor="@color/border_light"
+              android:insetTop="0dp"
+              android:insetBottom="0dp" />
+
+          <com.google.android.material.button.MaterialButton
+              android:id="@+id/catHouse"
+              style="@style/Widget.Material3.Button.TonalButton"
+              android:layout_width="wrap_content"
+              android:layout_height="40dp"
+              android:layout_marginStart="8dp"
+              android:text="Household"
+              app:icon="@drawable/ic_cat_house"
+              app:iconSize="16dp"
+              app:iconTint="@color/bazario_blue"
+              android:textColor="@color/bazario_navy"
+              android:textSize="13sp"
+              app:cornerRadius="20dp"
+              app:backgroundTint="@color/bazario_blue_subtle"
+              app:strokeWidth="1dp"
+              app:strokeColor="@color/border_light"
+              android:insetTop="0dp"
+              android:insetBottom="0dp" />
+
+          <com.google.android.material.button.MaterialButton
+              android:id="@+id/catBaby"
+              style="@style/Widget.Material3.Button.TonalButton"
+              android:layout_width="wrap_content"
+              android:layout_height="40dp"
+              android:layout_marginStart="8dp"
+              android:text="Baby Care"
+              app:icon="@drawable/ic_cat_baby"
+              app:iconSize="16dp"
+              app:iconTint="@color/bazario_blue"
+              android:textColor="@color/bazario_navy"
+              android:textSize="13sp"
+              app:cornerRadius="20dp"
+              app:backgroundTint="@color/bazario_blue_subtle"
+              app:strokeWidth="1dp"
+              app:strokeColor="@color/border_light"
+              android:insetTop="0dp"
+              android:insetBottom="0dp" />
+
+        </LinearLayout>
+
+      </HorizontalScrollView>
+
+
+      <!-- Popular Products Header -->
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Popular Products"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/bazario_navy" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginButton"
+            style="@style/Widget.Bazario.Button.Outlined"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Sign In"
+            android:textSize="12sp"
+            android:paddingHorizontal="14dp"
+            app:cornerRadius="18dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+      </LinearLayout>
+
+
+      <!-- Products Recycler -->
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/productsRecycler"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:nestedScrollingEnabled="false" />
+
+    </LinearLayout>
+
+  </androidx.core.widget.NestedScrollView>
+
+
+  <!-- Bottom Navigation Bar -->
+  <com.google.android.material.card.MaterialCardView
+      android:layout_width="match_parent"
+      android:layout_height="64dp"
+      app:cardCornerRadius="0dp"
+      app:cardElevation="10dp"
+      app:strokeWidth="1dp"
+      app:strokeColor="@color/border_light"
+      app:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+      <!-- Home Tab -->
+      <LinearLayout
+          android:id="@+id/navHome"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:orientation="vertical"
+          android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_nav_home"
+            app:tint="@color/bazario_blue"
+            android:contentDescription="Home" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Home"
+            android:textColor="@color/bazario_blue"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+      </LinearLayout>
+
+      <!-- Orders Tab -->
+      <LinearLayout
+          android:id="@+id/ordersButton"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:orientation="vertical"
+          android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_nav_orders"
+            app:tint="@color/bazario_muted"
+            android:contentDescription="Orders" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Orders"
+            android:textColor="@color/bazario_muted"
+            android:textSize="11sp" />
+      </LinearLayout>
+
+      <!-- Offers Tab -->
+      <LinearLayout
+          android:id="@+id/offersButton"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:orientation="vertical"
+          android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_nav_offers"
+            app:tint="@color/bazario_muted"
+            android:contentDescription="Offers" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Offers"
+            android:textColor="@color/bazario_muted"
+            android:textSize="11sp" />
+      </LinearLayout>
+
+      <!-- Profile Tab -->
+      <LinearLayout
+          android:id="@+id/profileButtonBottom"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:orientation="vertical"
+          android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_nav_profile"
+            app:tint="@color/bazario_muted"
+            android:contentDescription="Profile" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Profile"
+            android:textColor="@color/bazario_muted"
+            android:textSize="11sp" />
+      </LinearLayout>
+
+    </LinearLayout>
+
+  </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
